@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+/** Mixin for the Flexbox display. */
 body {
   background-color: #171717;
 }
