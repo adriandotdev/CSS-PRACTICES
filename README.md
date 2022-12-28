@@ -38,3 +38,11 @@ header {
 
 NOTE: If you are assigning the area, it is not in a STRING.
 
+# Creating Modal
+
+## What I learned
+
+- I learned how to use a pseudo selectors.
+- I learned how to use client-side validation in forms.
+- I learned how to use @mixins and utilities to seperate concerns in CSS.
+- Done for the recap of some of the basics of CSS and JS.
