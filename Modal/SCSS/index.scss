@@ -124,6 +124,7 @@ main {
 
                 a:hover {
                     color: utilities.$yellow-shade-3;
+                    font-weight: bold;
                 }
             }
         }
@@ -131,6 +132,31 @@ main {
         .modal:focus #modal-bg{
             background-color: red;
             visibility: visible;
+        }
+
+        .registered-success {
+            position: absolute;
+            background-color: white;
+            max-width: 20rem;
+            top: -5%;
+            left: 50%;
+            text-align: center;
+            padding: 1em .5em;
+            border-radius: .5rem;
+            transform: translateX(-50%);
+            box-shadow: 2px 2px 25px utilities.$yellow-shade-2;
+            visibility: hidden;
+            transition: all 200ms;
+            h2 {
+                font-size: 1.2rem;
+                font-family: Poppins, sans-serif;
+                text-shadow: 2px 1px 0px utilities.$yellow-shade-3;
+            }
+        }
+
+        .registered-success-show {
+            visibility: visible;
+            top: 5%;
         }
     }
     

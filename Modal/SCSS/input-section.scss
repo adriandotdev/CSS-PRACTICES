@@ -70,9 +70,9 @@
         outline: 2px solid red;
     }
 
-    .input-field:focus:invalid {
-        outline: 2px solid red;
-    }
+    // .input-field:focus:invalid {
+    //     outline: 2px solid red;
+    // }
 
     .input-field:valid {
         outline: 2px solid green;
@@ -83,6 +83,7 @@
     text-align: left;
     align-self: flex-start;
     font-family: sans-serif;
-    padding: 0 .2rem;;
+    padding: 0 .2rem;
+    color: rgb(185, 5, 5);
     display: none;
 }

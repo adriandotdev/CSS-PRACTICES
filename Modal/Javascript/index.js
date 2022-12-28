@@ -1,9 +1,9 @@
-
 let modal = document.querySelector("#modal");
 let modalBg = document.querySelector('#modal-bg');
 let emailField = document.querySelector('input[type="email"]');
 let passwordField = document.querySelector('input[type="password"]');
 let btnLogin = document.querySelector('#btn-login');
+let successAlert = document.querySelector('.registered-success');
 
 modal.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -11,20 +11,8 @@ modal.addEventListener('click', (e) => {
 
 modal.addEventListener('submit', (event) => {
 
-    let emailValidFormat = /\w+(@gmail.com|@yahoo.com)/;
-
-    let passwordCharactersValid = /[A-Za-z0-9_]/;
-    let passwordValidFormat = /[\w+]{8,}/;
-
-    if (!String(emailField.value).match(emailValidFormat)) {
-        emailField.parentElement.parentElement.children[1].style.display = 'block';
-    }
-
-    if (!String(passwordField.value).match(passwordValidFormat) || !String(passwordField.value).match(passwordCharactersValid)) {
-        passwordField.parentElement.parentElement.children[1].style.display = 'block';
-        passwordField.parentElement.parentElement.children[1].textContent = 'Password must be at least 8 characters long. Valid characters are alphanumeric such as letters, numbers and (_).';
-    }
-}) ;
+    successAlert.classList.add('registered-success-show');
+});
 
 btnLogin.addEventListener('click', (e) => {
 
@@ -35,12 +23,12 @@ btnLogin.addEventListener('click', (e) => {
 
     if (!String(emailField.value).match(emailValidFormat)) {
         emailField.parentElement.parentElement.children[1].style.display = 'block';
+        emailField.parentElement.parentElement.children[1].textContent = '*Email is incorrect. Valid email is youremail@gmail.com or youremail@yahoo.com';
     }
 
     if (!String(passwordField.value).match(passwordValidFormat) || String(passwordField.value).match(passwordCharactersValid)) {
         passwordField.parentElement.parentElement.children[1].style.display = 'block';
-        passwordField.parentElement.parentElement.children[1].textContent = 'Password must be at least 8 characters long. Valid characters are alphanumeric such as letters, numbers and (_).';
-        console.log("PASSWORD IS NOT VALID")
+        passwordField.parentElement.parentElement.children[1].textContent = '*Password must be at least 8 characters long. Valid characters are alphanumeric such as letters, numbers and (_).';
     }
 });
 
@@ -57,6 +45,8 @@ document.querySelectorAll('.input-field').forEach(input => {
 
         if (e.currentTarget.value === '') {
             input.classList.add('on-blur');
+            input.parentElement.parentElement.children[1].style.display = 'block';
+            input.parentElement.parentElement.children[1].textContent = '*This is a required field.';
         }
         else {
             input.classList.remove('on-blur');

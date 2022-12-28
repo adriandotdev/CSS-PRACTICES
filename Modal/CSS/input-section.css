@@ -71,9 +71,6 @@
 .form-input .on-blur {
   outline: 2px solid red;
 }
-.form-input .input-field:focus:invalid {
-  outline: 2px solid red;
-}
 .form-input .input-field:valid {
   outline: 2px solid green;
 }
@@ -83,5 +80,6 @@
   align-self: flex-start;
   font-family: sans-serif;
   padding: 0 0.2rem;
+  color: rgb(185, 5, 5);
   display: none;
 }

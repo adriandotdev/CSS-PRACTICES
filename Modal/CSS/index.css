@@ -119,10 +119,34 @@ main #modal-bg .modal .other-links a {
 }
 main #modal-bg .modal .other-links a:hover {
   color: #d8af1a;
+  font-weight: bold;
 }
 main #modal-bg .modal:focus #modal-bg {
   background-color: red;
   visibility: visible;
+}
+main #modal-bg .registered-success {
+  position: absolute;
+  background-color: white;
+  max-width: 20rem;
+  top: -5%;
+  left: 50%;
+  text-align: center;
+  padding: 1em 0.5em;
+  border-radius: 0.5rem;
+  transform: translateX(-50%);
+  box-shadow: 2px 2px 25px #b89824;
+  visibility: hidden;
+  transition: all 200ms;
+}
+main #modal-bg .registered-success h2 {
+  font-size: 1.2rem;
+  font-family: Poppins, sans-serif;
+  text-shadow: 2px 1px 0px #d8af1a;
+}
+main #modal-bg .registered-success-show {
+  visibility: visible;
+  top: 5%;
 }
 main #modal-bg::after {
   content: "";
