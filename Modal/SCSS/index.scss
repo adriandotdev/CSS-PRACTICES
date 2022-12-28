@@ -1,0 +1,203 @@
+@use './utilities';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin Flex($flow-direction, $gap, $justify-content, $align-items) {
+    display: flex;
+    flex-direction: $flow-direction;
+    gap: $gap;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+body {
+    @include Flex(column, 1rem, center, center);
+    min-height: 100vh;
+    height: 100%;
+    overflow: hidden;
+    background-color: utilities.$yellow-shade-1;
+}
+
+main {
+    @include Flex(column, 1.5rem, center, center);
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+
+    h1 {
+        font-family: 'DM Mono', monospace;
+        text-align: center;
+        text-shadow: 2px 2px 0px utilities.$yellow;
+    }
+
+    #open-btn {
+        padding: .5em 1em .5em 1em;
+        font-size: 1.2rem;
+        font-family: Poppins, sans-serif;
+        background-color: utilities.$white;
+        border: 1px solid black;
+        cursor: pointer;
+        transition: all 300ms;
+        border-radius: .5rem;
+    }
+
+    #open-btn:hover {
+        box-shadow: 4px 4px 0px black;
+        color: utilities.$text-color;
+        font-weight: 700;
+    }
+
+    input[type="checkbox"] {
+
+        visibility: hidden;
+    }
+
+    #modal-bg {
+        position: absolute;    
+        width: 100%;
+        height: 100vh;
+        transition: all 200ms;
+        display: block;
+        visibility: hidden;
+
+        .modal {
+            background: white;
+            position: absolute;
+            left: 50%;
+            bottom: -30%;
+            transform: translate(-50%, 0%);
+            width: 100%;
+            min-height: 20rem;
+            z-index: 2;
+            padding: 1.5rem 1rem 1rem 1rem;
+            box-shadow: 2px 2px 25px utilities.$yellow-shade-2;
+            border: 2px solid utilities.$yellow-shade-1;
+            // FLEX
+            @include Flex(column, 1rem, flex-start, center);
+            
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            transition: all 200ms;
+
+            // Heading 2
+            h2 {
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: bolder;
+                color: utilities.$text-color;
+                text-shadow: 3px 2px 0px utilities.$yellow-shade-1;
+            }
+
+            #btn-login {
+                width: 100%;
+                padding: .5em 1em;
+                background-color: white;
+                border: 1px solid black;
+                font-family: Poppins, sans-serif;
+                cursor: pointer;
+                transition: all 300ms;
+            }
+
+            #btn-login:hover {
+                box-shadow: 4px 4px 0px black;
+                color: utilities.$text-color;
+                font-weight: 700;
+            }
+
+            .other-links {
+
+                @include Flex(column, .5rem, center, center);
+                p {
+                    font-family: Poppins, sans-serif;
+                    font-size: .8rem;
+                }
+
+                a {
+                    font-family: Poppins, sans-serif;
+                    font-size: .8rem;
+                    color: utilities.$yellow-shade-2;
+                    text-decoration: none;
+                }
+
+                a:hover {
+                    color: utilities.$yellow-shade-3;
+                }
+            }
+        }
+
+        .modal:focus #modal-bg{
+            background-color: red;
+            visibility: visible;
+        }
+    }
+    
+    #modal-bg::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: black;
+        opacity: .1;
+        z-index: 1;
+    }
+}
+#checkbox1:checked + #modal-bg {
+    visibility: visible;
+}
+
+#checkbox1:checked + #modal-bg .modal {
+    bottom: 0;
+}
+
+#modal-bg:focus {
+    visibility: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+
+    #modal-bg {
+        
+        .modal {
+            top: 0%;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%, -50%);
+            max-width: 20rem;
+            width: 100%;
+            height: max-content;
+            opacity: 0;
+            border-radius: 1rem;
+            transition: all 200ms;
+        }
+    }
+
+    #checkbox1:checked+#modal-bg {
+        visibility: visible;
+    }
+
+    #checkbox1:checked + #modal-bg {
+        visibility: visible;
+    }
+
+    #checkbox1:checked + #modal-bg .modal {
+        top: 50%;
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media only screen and (min-width: 1366px) {
+    main {
+        h1 {
+            font-size: 3rem;
+        }
+    }
+
+    #modal {
+        min-width: 25rem;
+    }
+}

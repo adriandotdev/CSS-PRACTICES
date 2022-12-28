@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/index.css">
+    <link rel="stylesheet" href="./CSS/input-section.css">
+    <title>Login Page</title>
+</head>
+<body>
+    <main>
+        <h1>Welcome back, Ginanon!</h1>
+        
+        <label id="open-btn" for="checkbox1">Sign Up</label>
+        <input type="checkbox" name="checkbox1" id="checkbox1">
+        <div tabindex="2" id="modal-bg">
+        
+            <form class="modal" id="modal">
+                <h2>Ginanon.match</h2>
+                <div class="form-util">
+                    <section class="form-input">
+                        <input class="input-field" placeholder="" type="email" name="username" id="username" required
+                            pattern="\w+(@gmail.com|@yahoo.com)">
+                        <label for="username">Email</label>
+                    </section>
+                    <small>*Email is incorrect. Valid email is youremail@gmail.com or youremail@yahoo.com</small>
+                </div>
+                <div class="form-util">
+                    <section class="form-input">
+                        <input required minlength="8" class="input-field" placeholder="" type="password" name="password" id="password" pattern="[\w+]{8,}">
+                        <label for="password">Password</label>
+                    </section>
+                    <small>Password must have atleast 8 characters long.</small>
+                </div>
+               
+                <input id="btn-login" type="submit" value="Sign Up">
+                <!-- <button id="btn-login">Login</button> -->
+
+                <section class="other-links">
+                    <p>Already have an account? <a href="">Log In</a></p>
+                    <a href="">About Ginanon.match</a>
+                </section>
+            </form>
+        </div>
+    </main>
+
+    <script defer src="./Javascript/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&display=swap");
+.form-util {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  justify-content: stretch;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+}
+.form-input label {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  transform: translateY(-50%);
+  color: rgb(158, 158, 158);
+  transition: all 200ms;
+  font-family: Poppins, sans-serif;
+}
+.form-input label::after {
+  content: "*";
+  display: none;
+}
+.form-input .input-field {
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid #F1C21B;
+  border-radius: 0.2rem;
+  outline: none;
+  transition: all 100ms;
+}
+.form-input .input-field:focus-within {
+  outline: 2px solid #d8af1a;
+}
+.form-input .input-field:focus-within + label {
+  background: white;
+  color: black;
+  top: 0;
+  left: 1%;
+  padding: 0 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.form-input .input-field:not(:placeholder-shown) + label {
+  background: white;
+  color: black;
+  top: 0;
+  left: 1%;
+  padding: 0 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.form-input .input-field:not(:placeholder-shown) + label::after {
+  display: inline-block;
+  color: red;
+}
+.form-input .input-field:focus-within + label::after {
+  display: inline-block;
+  color: red;
+}
+.form-input .on-blur {
+  outline: 2px solid red;
+}
+.form-input .input-field:focus:invalid {
+  outline: 2px solid red;
+}
+.form-input .input-field:valid {
+  outline: 2px solid green;
+}
+
+.form-input ~ small {
+  text-align: left;
+  align-self: flex-start;
+  font-family: sans-serif;
+  padding: 0 0.2rem;
+  display: none;
+}

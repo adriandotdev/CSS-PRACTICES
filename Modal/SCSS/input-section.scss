@@ -1,0 +1,88 @@
+@use './utilities';
+
+@mixin PlaceHolderNotShown() {
+    background: white;
+    color: black;
+    top: 0;
+    left: 1%;
+    padding: 0 .2rem;
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+.form-util {
+    width: 100%;
+    @include utilities.Flex(column, .2rem, flex-start, flex-start);
+}
+
+.form-input {
+
+    @include utilities.Flex(column, 0rem, stretch, flex-start);
+    position: relative;
+    width: 100%;
+    
+    label {
+        position: absolute;
+        top: 50%;
+        left: 2%;
+        transform: translateY(-50%);
+        color: utilities.$gray;
+        transition: all 200ms;
+        font-family: Poppins, sans-serif;
+    }
+
+    label::after {
+        content: "*";
+        display: none;
+    }
+
+    .input-field {
+        padding: .5rem;
+        width: 100%;
+        border: 1px solid utilities.$yellow-shade-1;
+        border-radius: .2rem;
+        outline: none;
+        transition: all 100ms;
+    }
+
+    .input-field:focus-within {
+        outline: 2px solid utilities.$yellow-shade-3;
+    }
+
+    .input-field:focus-within + label {
+        @include PlaceHolderNotShown();
+    }
+
+    .input-field:not(:placeholder-shown) + label {
+        @include PlaceHolderNotShown();
+    }
+
+    .input-field:not(:placeholder-shown) + label::after {
+        display: inline-block;
+        color: red;
+    }
+    .input-field:focus-within + label::after {
+        display: inline-block;
+        color: red;
+    }
+
+    .on-blur {
+        outline: 2px solid red;
+    }
+
+    .input-field:focus:invalid {
+        outline: 2px solid red;
+    }
+
+    .input-field:valid {
+        outline: 2px solid green;
+    }
+}
+
+.form-input ~ small {
+    text-align: left;
+    align-self: flex-start;
+    font-family: sans-serif;
+    padding: 0 .2rem;;
+    display: none;
+}
